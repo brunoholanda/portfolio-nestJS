@@ -1,6 +1,7 @@
 import { DataSource } from 'typeorm';
 import { User } from './users/user.entity';
 import { Post } from './posts/post.entity';
+import { Lead } from './leads/lead.entity'; // Adicione esta linha
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
@@ -9,7 +10,7 @@ export const AppDataSource = new DataSource({
   username: 'postgres',
   password: 'cc391618',
   database: 'portfolio',
-  entities: [User, Post],
+  entities: [User, Post, Lead], // Adicione Lead aqui
   migrations: ['src/migration/*.ts'],
   synchronize: false,
 });

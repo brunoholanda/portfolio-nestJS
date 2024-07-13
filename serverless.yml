@@ -1,0 +1,43 @@
+service: nest-lambda-service
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-1
+
+functions:
+  app:
+    handler: dist/main.handler
+    events:
+      - http:
+          path: /
+          method: any
+      - http:
+          path: /{proxy+}
+          method: any
+
+package:
+  patterns:
+    - '!node_modules/**'
+    - '!src/**'
+    - '!test/**'
+    - '!dist/test/**'
+    - '!dist/spec/**'
+    - '!dist/**/*.spec.js'
+    - 'dist/**'
+    - 'node_modules/**'
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    port: 3000
+  esbuild:
+    bundle: true
+    minify: false
+    sourcemap: true
+    exclude: ['aws-sdk']
+    target: 'node20'
+    define: { 'require.resolve': undefined }
+    platform: 'node'
