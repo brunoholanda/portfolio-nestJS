@@ -8,8 +8,8 @@ export class Lead {
   @Column()
   name: string;
 
-  @Column()
-  email: string;
+  @Column({ nullable: true })
+  email?: string;
 
   @Column()
   whatsapp: string;
