@@ -28,13 +28,10 @@ export class LeadsService {
     const lead = this.leadsRepository.create(createLeadDto);
     const savedLead = await this.leadsRepository.save(lead);
 
-    // URL direta para o PDF no Google Drive
     const pdfUrl = 'https://drive.google.com/uc?export=download&id=1tVg8Q3419ERtW7mIXOMmi1FUTd7Yy8I7';
     
-    // Log para verificar se a função sendWhatsAppMessage está sendo chamada
     console.log(`Enviando mensagem para: ${savedLead.whatsapp}`);
 
-    // Enviar mensagem WhatsApp com PDF
     await this.sendWhatsAppMessage(savedLead.whatsapp, pdfUrl);
 
     return {
