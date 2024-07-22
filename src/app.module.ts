@@ -6,10 +6,10 @@ import { User } from '@users/user.entity';
 import { Post } from '@posts/post.entity';
 import { Lead } from '@leads/lead.entity';
 
-import { AuthModule } from '@auth/auth.module';
-import { UsersModule } from '@users/users.module';
-import { PostsModule } from '@posts/posts.module';
-import { LeadsModule } from '@leads/leads.module';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
+import { PostsModule } from './posts/posts.module';
+import { LeadsModule } from './leads/leads.module';
 
 @Module({
   imports: [
