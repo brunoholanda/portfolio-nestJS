@@ -1,8 +1,9 @@
 import { DataSource } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
-import { User } from './users/user.entity';
-import { Post } from './posts/post.entity';
-import { Lead } from './leads/lead.entity'; // Adicione esta linha
+import { User } from '@users/user.entity';
+import { Post } from '@posts/post.entity';
+import { Lead } from '@leads/lead.entity';
+
 
 const configService = new ConfigService();
 

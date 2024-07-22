@@ -20,7 +20,13 @@
     "strict": true,
     "esModuleInterop": true,
     "rootDir": "./src",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "paths": {
+      "@auth/*": ["src/auth/*"],
+      "@users/*": ["src/users/*"],
+      "@posts/*": ["src/posts/*"],
+      "@leads/*": ["src/leads/*"]
+    }
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"]
